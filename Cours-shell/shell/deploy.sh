@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 ########################################################
 #
 # Description : lancement d'une plateforme de conteneurs
@@ -18,11 +17,22 @@ if [ "$1" == "--create" ];then
  nb_machine=1
  [ "$2" != "" ] && nb_machine=$2
 
+ # Setting min/max
+ min=1
+ max=0
+ 
+ # Récupération de l'id max
+idmax=`docker ps -a --format '{{ .Names}}' | awk -F "-" -v user=$USER '$0 ~ user"-alpine" {print $3}' | sort -r | head -1`
+
+# redéfinission de min et max
+min=$(($idmax +1))
+max=$(($idmax + $nb_machine))
+
  # creation des conteneurs
- echo "Début de la création du/des conteneura...s"
- for i in $(seq 1 $nb_machine);do
+ echo "Début de la création du/des conteneur..."
+ for i in $(seq $min $max);do
 	docker run -tid --name $USER-alpine-$i alpine:latest
-	echo "Conteneur $USER-alpine$i cree"
+	echo "Conteneur $USER-alpine-$i cree"
  done
 
 
@@ -34,6 +44,8 @@ elif [ "$1" == "--drop" ];then
  echo "Suppression des conteneurs..."
  docker rm -f $(docker ps -a | grep $USER-alpine | awk '{print $1}')
  echo "Fin de la suppression"
+
+
 
 # si option --start
 elif [ "$1" == "--start" ];then
