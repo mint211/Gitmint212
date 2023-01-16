@@ -1,0 +1,5 @@
+# Command docker:
+#
+# docker exec -it gitlab-dockercompose_web_1 grep 'Password' /etc/gitlab/initial_root_password
+#          2. Password hasn't been changed manually, either via UI or via command line.
+Password: 8r9VPvqG9gjH/yX8coEaWxeF3nmUdhznlOxE4MWhWbk=
