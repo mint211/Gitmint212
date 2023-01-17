@@ -1,0 +1,15 @@
+all:
+  children:
+    common:
+      children:
+        webserver:
+          hosts:
+            172.17.0.2:
+        dbserver:
+          hosts:
+            172.17.0.3:
+    monitoring:
+      children:
+        webserver:
+        dbserver:
+
