@@ -1,0 +1,17 @@
+[common]
+children = [ "dbserver", "webserver",]
+
+[dbserver.hosts.node3]
+var1 = "gp_dbserver"
+
+[dbserver.hosts.node4]
+var1 = "node4"
+
+[webserver.hosts.node1]
+var1 = "gp_webserver"
+
+[webserver.hosts.node2]
+var1 = "gp_webserver"
+
+[nocommon.hosts.node6]
+var1 = "gp_all"

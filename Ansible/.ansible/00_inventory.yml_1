@@ -7,9 +7,9 @@ all:
             node[1:2]:
         dbserver:
           hosts:
-            node3:
-            node4:
-    nocommon:
-      hosts:
-        node5:
+            172.17.0.3:
+    monitoring:
+      children:
+        webserver:
+        dbserver:
 

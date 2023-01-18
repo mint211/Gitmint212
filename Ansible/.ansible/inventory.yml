@@ -4,12 +4,12 @@ all:
       children:
         webserver:
           hosts:
-            node[1:2]:
+            node[1-2]:
         dbserver:
           hosts:
-            node3:
-            node4:
-    nocommon:
-      hosts:
-        node5:
+            srv[3-4]:
+    monitoring:
+      children:
+        webserver:
+        dbserver:
 
