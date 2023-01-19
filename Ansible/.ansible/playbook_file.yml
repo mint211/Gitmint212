@@ -1,0 +1,48 @@
+- name: "Mon premier playbook"
+  hosts: common
+  become: yes
+  tasks:
+  - name: check connexion
+    ping: 
+
+  - name: creation /tmp/frank
+    file:
+      path: "/tmp/frank"
+      recurse: yes
+      state: directory
+      owner: root
+      group: root
+      mode: 0755
+
+        #  - name: creation /tmp/frank/1/2/3/4/fichier.txt
+        #    file:
+        #   path: "/tmp/frank/1/2/3/4/fichier.txt"
+        #  state: touch
+        #  owner: root
+        #  group: root
+        #  mode: 0755
+
+        #  - name: test si il existe /tmp/frank/1/2/3/4/fichier.txt
+        #    file:
+        #  path: "/tmp/frank/1/2/3/4/fichier.txt"
+        #  state: file
+        # owner: root
+        # group: root
+        # mode: 0755
+
+        #  - name: test symbolique link
+        #    file:
+        ##  src: "/tmp/frank/1/2/3/4/"
+        #  dest: "/tmp/symlink"
+        #  state: link
+        # owner: root
+        # group: root
+        #  mode: 0755
+
+  - name: supprimer file
+    file:
+      path: "/tmp/symlink"
+      state: absent
+
+
+

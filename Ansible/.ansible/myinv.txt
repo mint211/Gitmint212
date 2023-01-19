@@ -1,0 +1,21 @@
+all:
+  children:
+    common:
+      children:
+        dbserver:
+          hosts:
+            node3:
+              var1: gp_dbserver
+            node4:
+              var1: node4
+        webserver:
+          hosts:
+            node1:
+              var1: gp_webserver
+            node2:
+              var1: gp_webserver
+    nocommon:
+      hosts:
+        node6:
+          var1: gp_all
+    ungrouped: {}
