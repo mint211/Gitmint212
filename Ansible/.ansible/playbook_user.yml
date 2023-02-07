@@ -1,0 +1,16 @@
+- name: playbook test user
+  hosts: all
+  become: yes
+  tasks:
+  - name: test module user
+    user: 
+      name: chaton1
+      state: present
+      group: sudo
+      uid: 1200
+      generate_ssh_key: yes
+      password: "{{ 'password' | password_hash('sha512') }}"
+    register: __user_chaton
+  - name: debug user
+    debug:
+      var: __user_chaton

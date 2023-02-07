@@ -1,0 +1,23 @@
+- name: nom de mon playbook
+  hosts: all
+  become: yes
+  tasks:
+  - name: creation repertoire
+    file:
+      state: directory
+      path: /tmp/choky
+
+  - name: creation des repertoires de niveau 2
+    file:
+      state: directory
+      path: "/tmp/choky/{{ item.pute }}/{{ item.fichier }}"
+      recurse: yes
+      mode: "0600"
+    with_items: "{{ mondictionnaire }}"
+    #- frank1
+    #- frank2
+    #- frank3
+    #- frank4
+    #- { pute: "choky7", fichier: "titi.txt" }
+    #- { pute: "choky8", fichier: "toto.txt" }
+    #- "{{ mondictionnaire }}"

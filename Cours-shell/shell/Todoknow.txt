@@ -1,0 +1,8 @@
+not found SHUTDOWN - POWEROFF - Halt
+CODE: SELECT ALL
+
+deb http://ftp.de.debian.org/debian/ buster main contrib 
+Then, as root
+CODE: SELECT ALL
+
+apt update

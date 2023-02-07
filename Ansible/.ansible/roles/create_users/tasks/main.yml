@@ -1,0 +1,12 @@
+---
+# tasks file for roles/create_users
+- name: "Creation du user"
+  user:
+    name: poupy
+    state: present
+    shell: /usr/bin/false
+    groups: sudo
+    append: yes
+    home: /home/poupy
+    uid: 1080
+

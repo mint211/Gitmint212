@@ -1,0 +1,8 @@
+- name: "Mon Playbook use local_action"
+  hosts: all
+  become: yes
+  tasks:
+
+  - name: "creation du fichier local_action"
+    local_action: ansible.builtin.command touch /tmp/minou.txt 
+

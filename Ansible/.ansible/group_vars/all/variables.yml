@@ -1,1 +1,8 @@
+#vars:
+# ansible_python_interpreter: /usr/bin/python3
 var1: gp_all
+var2: node[1-6]
+mondictionnaire:
+- { pute: "choky9", fichier: "tati.txt" }
+- { pute: "choky10", fichier: "tuto.txt" }
+nginx_port: 8888

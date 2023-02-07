@@ -12,4 +12,5 @@ all:
     nocommon:
       hosts:
         node5:
+        node6:
 
