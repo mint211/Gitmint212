@@ -1,0 +1,17 @@
+- name: utilisation de unarchive
+  hosts: webserver, nocommon
+  become: yes
+  tasks:
+
+  - name: unarchive node exporter
+    unarchive:
+      name: haproxy
+      state: present
+      update_cache: yes
+      cache_valid_time: 3600
+
+  - name: start haproxy service
+    systemd:
+      name: haproxy
+      state: started
+      enabled: yes 

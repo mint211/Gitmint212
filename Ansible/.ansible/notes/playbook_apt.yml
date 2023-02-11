@@ -1,0 +1,8 @@
+- name: how to use apt module
+  hosts: all
+  become: yes
+  tasks:
+  - name: update cache
+    apt:
+      name: git
+      state: present

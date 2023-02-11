@@ -23,7 +23,7 @@ RUN ln -s /lib/systemd/system /sbin/init
 RUN systemctl set-default multi-user.target
 RUN sed -i 's#root:\*#root:sa3tHJ3/KuYvI#' /etc/shadow
 ENV init /lib/systemd/systemd
-VOLUME [ "/sys/fs/cgroup" ]
+VOLUME ["/sys/fs/cgroup", "/tmp", "/run", "/run/lock"]
 
 ENTRYPOINT ["/lib/systemd/systemd"]
 
