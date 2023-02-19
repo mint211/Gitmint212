@@ -1,5 +1,5 @@
 - name: utilisation de unarchive
-  hosts: webserver, nocommon
+  hosts: all
   become: yes
   tasks:
 

@@ -1,0 +1,11 @@
+all:
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
+  hosts:
+    pode1:
+    pode3:
+    node6:
+  children:
+    monito:
+      hosts:
+        pode2:

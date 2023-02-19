@@ -1,0 +1,3 @@
+---
+# defaults file for roles/testvars
+var1: "default role"
