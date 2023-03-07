@@ -3,8 +3,8 @@ all:
     ansible_python_interpreter: /usr/bin/python3
   hosts:
     pode1:
-    pode2:
+    pode3:
   children:
     monito:
       hosts:
-        node6:
+        pode2:

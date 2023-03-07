@@ -1,0 +1,5 @@
+foobarbazfoobarbaz
+foo linux baz foo linux baz
+Foo linux Baz Foo linux Baz
+FOO linux BAZ FOO linux BAZ
+/foo/linux/baz /foo/linux/baz
