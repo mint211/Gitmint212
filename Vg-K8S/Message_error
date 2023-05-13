@@ -1,0 +1,27 @@
+Vagrant is currently configured to create VirtualBox synced folders with
+the `SharedFoldersEnableSymlinksCreate` option enabled. If the Vagrant
+guest is not trusted, you may want to disable this option. For more
+information on this option, please refer to the VirtualBox manual:
+
+  https://www.virtualbox.org/manual/ch04.html#sharedfolders
+
+This option can be disabled globally with an environment variable:
+
+  VAGRANT_DISABLE_VBOXSYMLINKCREATE=1
+
+or on a per folder basis within the Vagrantfile:
+
+  config.vm.synced_folder '/host/path', '/guest/path', SharedFoldersEnableSymlinksCreate: false
+==> autohaprox: Clearing any previously set network interfaces...
+The IP address configured for the host-only network is not within the
+allowed ranges. Please update the address used to be within the allowed
+ranges and run the command again.
+
+  Address: 192.168.12.10
+  Ranges: 192.168.56.0/21
+
+Valid ranges can be modified in the /etc/vbox/networks.conf file. For
+more information including valid format see:
+
+  https://www.virtualbox.org/manual/ch06.html#network_hostonly
+

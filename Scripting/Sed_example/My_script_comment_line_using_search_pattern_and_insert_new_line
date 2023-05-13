@@ -1,0 +1,5 @@
+search_variable="line=eeeee aaaa cccc"
+new_variable="line=-eeeee +aaaa cccc false"
+
+#sed -i.qq "s/.*${search_variable}.*/#&\n${new_variable}/" testfile.txt
+sed -i.qq "s/.*${search_variable}/#&\n${new_variable}/" testfile.txt

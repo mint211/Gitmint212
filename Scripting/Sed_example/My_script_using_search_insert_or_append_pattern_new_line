@@ -1,0 +1,9 @@
+awk '{ if ( $0 ~ /^line=eeeee/ ) {
+          #printf( "%s\n%s\n", "Some new inserted text here", $0 );
+          #printf( "%s\n%s\n", "Some new inserted text here", $0 );
+	  # could use the following to append
+	   printf( "%s\n%s\n", $0, "Some new appended text here" );
+     } else {
+          print $0;
+     }
+}' my_input_file

@@ -1,0 +1,1231 @@
+From: <Enregistré par Windows Internet Explorer 8>
+Subject: =?iso-8859-1?Q?Aide-m=E9moire_des_commandes_Unix?=
+Date: Thu, 6 Dec 2012 10:12:52 +0100
+MIME-Version: 1.0
+Content-Type: text/html;
+	charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://www.di.ens.fr/~pouzet/cours/systeme/unix/commandes_Unix.html
+X-MimeOLE: Produced By Microsoft MimeOLE V6.00.2900.6109
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML lang=3Dfr><HEAD><TITLE>Aide-m=E9moire des commandes Unix</TITLE>
+<META content=3D"text/html; charset=3Diso-8859-1" =
+http-equiv=3DContent-Type>
+<META name=3DAuthor content=3D"Christophe Blaess">
+<META name=3DKeywords content=3DAide-m=E9moire,commandes,Unix>
+<META name=3DRobots content=3DIndex,Follow>
+<STYLE>BODY {
+	MARGIN: 0px 10%
+}
+H1 {
+	TEXT-ALIGN: center; FONT-FAMILY: arial,helvetica,sans-serif; FONT-SIZE: =
+14pt; FONT-WEIGHT: bold
+}
+P.introduction {
+	TEXT-ALIGN: justify; MARGIN: 0px 5%; FONT-FAMILY: =
+times,times-new-roman,serif; FONT-SIZE: 10pt
+}
+A.introduction {
+	COLOR: black; FONT-WEIGHT: bold; TEXT-DECORATION: none
+}
+P.auteur {
+	TEXT-ALIGN: center; FONT-FAMILY: times,times-new-roman,serif; COLOR: =
+gray; FONT-SIZE: 9pt
+}
+A.auteur {
+	COLOR: gray; FONT-WEIGHT: bold; TEXT-DECORATION: none
+}
+A.auteur:hover {
+	TEXT-DECORATION: underline
+}
+A.introduction:hover {
+	TEXT-DECORATION: underline
+}
+SPAN.code {
+	FONT-FAMILY: courier-new,courier,monospace
+}
+P.commande {
+	MARGIN: 6pt 0px 0px; FONT-FAMILY: times,times-new-roman,serif; =
+FONT-SIZE: 10pt
+}
+SPAN.initiale {
+	FONT-FAMILY: arial,helvetica,sans-serif; BACKGROUND: gray; =
+LETTER-SPACING: 3pt; COLOR: white; FONT-SIZE: 18pt; FONT-WEIGHT: bold
+}
+SPAN.nomCommande {
+	FONT-FAMILY: arial,helvetica,sans-serif; FONT-WEIGHT: bold
+}
+P.exemple {
+	MARGIN: 0px 0px 0px 12pt; FONT-FAMILY: courier-new,courier,monospace; =
+FONT-SIZE: 10pt
+}
+P.options {
+	TEXT-ALIGN: justify; MARGIN: 0px 0px 0px 12pt; FONT-FAMILY: =
+times,times-new-roman,serif; FONT-SIZE: 10pt
+}
+SPAN.lettreOption {
+	FONT-FAMILY: courier-new,courier,monospace; FONT-WEIGHT: bold
+}
+P.explicationExemple {
+	TEXT-ALIGN: justify; MARGIN: 0px 0px 0px 18pt; FONT-FAMILY: =
+times,times-new-roman,serif; FONT-SIZE: 10pt
+}
+</STYLE>
+
+<META name=3DGENERATOR content=3D"MSHTML 8.00.6001.19258"></HEAD>
+<BODY>
+<H1>Aide-m=E9moire des commandes Unix</H1>
+<P class=3Dauteur>=A9 2007 C.Blaess - <A class=3Dauteur=20
+href=3D"http://www.blaess.fr/christophe/">http://www.blaess.fr/christophe=
+/</A>=20
+<BR></P>
+<P class=3Dintroduction>Ce document regroupe les principales commandes=20
+susceptibles d'=EAtre employ=E9es r=E9guli=E8rement par les utilisateurs =
+Unix, en=20
+rappelant leurs options les plus courantes. Pour avoir plus de d=E9tail =
+sur une=20
+commande particuli=E8re, on consultera le manuel Unix (commande =
+<SPAN>man</SPAN>).=20
+</P>
+<P class=3Dcommande><SPAN class=3Dinitiale>a</SPAN><SPAN=20
+class=3DnomCommande>propos</SPAN> - Liste les pages du manuel concernant =
+un sujet=20
+</P>
+<P class=3Dexemple>apropos shell </P>
+<P class=3Dcommande><SPAN class=3DnomCommande>arch</SPAN> - Affiche =
+l'architecture=20
+de la machine. </P>
+<P class=3Dcommande><SPAN class=3DnomCommande>at, atq, atrm</SPAN> - =
+M=E9morise,=20
+examine ou supprime des jobs =E0 ex=E9cuter ult=E9rieurement.</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-f</SPAN> lire les =
+commandes dans le=20
+fichier indiqu=E9.</P>
+<P class=3Dexemple>$ at now + 10 minutes &lt; script.sh</P>
+<P class=3Dexemple>$ at 20:55 -f demarre_magnetoscope.sh</P>
+<P class=3Dcommande><SPAN class=3DnomCommande>awk</SPAN> - =
+Interpr=E9teur du langage=20
+Awk.</P>
+<P class=3Doptions><SPAN class=3DlettreOption>NF</SPAN> nombre de champs =
+sur la=20
+ligne</P>
+<P class=3Doptions><SPAN class=3DlettreOption>FS</SPAN> s=E9parateur de =
+champs</P>
+<P class=3Doptions><SPAN class=3DlettreOption>NR</SPAN> num=E9ro =
+d'enregistrement (de=20
+ligne)</P>
+<P class=3Doptions><SPAN class=3DlettreOption>$1, $2=85$NF</SPAN> champs =
+
+successifs</P>
+<P class=3Dexemple>ls -l | awk '{somme+=3D $5} END{print somme}'</P>
+<P class=3DexplicationExemple>additionne les tailles des fichiers du =
+r=E9pertoire=20
+courant </P>
+<P class=3Dcommande><SPAN class=3Dinitiale>b</SPAN><SPAN=20
+class=3DnomCommande>asename</SPAN> - =C9limine le chemin d'acc=E8s et le =
+suffixe=20
+=E9ventuel d'un nom de fichier.</P>
+<P class=3Dexemple>$ basename /usr/src/linux/signal.c</P>
+<P class=3Dexemple>signal.c</P>
+<P class=3Dexemple>$ basename /usr/src/linux/signal.c .c</P>
+<P class=3Dexemple>signal</P>
+<P class=3Dexemple>$</P>
+<P class=3Dcommande><SPAN class=3DnomCommande>bash</SPAN> - Shell Gnu =
+Bash</P>
+<P class=3Dcommande><SPAN class=3DnomCommande>batch</SPAN> - Lance un =
+job en diff=E9r=E9=20
+suivant la charge syst=E8me</P>
+<P class=3Dexemple>batch &lt;&lt; FIN</P>
+<P class=3Dexemple>&nbsp; tri_des_enregistrements</P>
+<P class=3Dexemple>FIN</P>
+<P class=3Dcommande><SPAN class=3DnomCommande>bc</SPAN> - Calculateur en =
+pr=E9cision=20
+arbitraire.</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-l</SPAN> biblioth=E8que =
+math=E9matique=20
+compl=E8te.</P>
+<P class=3Dexemple>$ pi=3D$(echo "a(1)*4" | bc -l)</P>
+<P class=3Dexemple>$ echo $pi</P>
+<P class=3Dexemple>3.14159265358979323844</P>
+<P class=3Dexemple>$</P>
+<P class=3Dcommande><SPAN class=3DnomCommande>bg</SPAN> - Relance =E0 =
+l'arri=E8re-plan=20
+un job arr=EAt=E9.</P>
+<P class=3Dexemple>$ application</P>
+<P class=3Dexemple>&nbsp; (Ctrl-Z)</P>
+<P class=3Dexemple>[1]+&nbsp; Stopped&nbsp;application</P>
+<P class=3Dexemple>$ bg</P>
+<P class=3Dexemple>[1]+ application &amp;</P>
+<P class=3Dexemple>$</P>
+<P class=3Dcommande><SPAN class=3DnomCommande>bunzip2</SPAN> - =
+D=E9compresse un=20
+fichier <SPAN class=3Dcode>.bz2</SPAN>.</P>
+<P class=3Dcommande><SPAN class=3DnomCommande>bzip2</SPAN> - Compresse =
+un=20
+fichier.</P>
+<P class=3Dcommande><SPAN class=3Dinitiale>c</SPAN><SPAN =
+class=3DnomCommande>al</SPAN>=20
+- Affiche un calendrier.</P>
+<P class=3Dexemple>cal 5 2003</P>
+<P class=3Dcommande><SPAN class=3DnomCommande>cat</SPAN> - Concat=E8ne =
+des fichiers=20
+sur la sortie standard.</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-n</SPAN> num=E9rote les =
+lignes en=20
+sortie,</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-v</SPAN> caract=E8res =
+sp=E9ciaux sous=20
+forme symbolique.</P>
+<P class=3Dexemple>cat entete.txt corps.txt signature.txt mail.txt</P>
+<P class=3Dcommande><SPAN class=3DnomCommande>cc</SPAN> - Compilateur =
+C.</P>
+<P class=3Dcommande><SPAN class=3DnomCommande>cd</SPAN> - Change de =
+r=E9pertoire de=20
+travail.</P>
+<P class=3Dexemple>cd /usr/src/linux</P>
+<P class=3Dexemple>cd -</P>
+<P class=3DexplicationExemple>revient au r=E9pertoire pr=E9c=E9dent</P>
+<P class=3Dexemple>cd</P>
+<P class=3DexplicationExemple>revient dans le r=E9pertoire =
+personnel.</P>
+<P class=3Dcommande><SPAN class=3DnomCommande>chgrp</SPAN> - Change le =
+groupe=20
+propri=E9taire d'un fichier.</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-R</SPAN> modifie =
+r=E9cursivement les=20
+sous-r=E9pertoires.</P>
+<P class=3Dexemple>chgrp equipe_2 fichier </P>
+<P class=3Dcommande><SPAN class=3DnomCommande>chmod</SPAN> - Modifie les =
+permissions=20
+d'un fichier.</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-R</SPAN> modifie =
+r=E9cursivement les=20
+sous-r=E9pertoires.</P>
+<P class=3Dexemple>chmod 644 texte</P>
+<P class=3DexplicationExemple>lecture pour tous, =E9criture seulement =
+pour=20
+propi=E9taire</P>
+<P class=3Dexemple>chmod 755 script</P>
+<P class=3DexplicationExemple>lecture et ex=E9cution pour tous, =
+=E9criture pour=20
+propri=E9taire</P>
+<P class=3Dexemple>chmod u+s executable</P>
+<P class=3DexplicationExemple>Activation du bit Set-UID du fichier.</P>
+<P class=3Dcommande><SPAN class=3DnomCommande>chown</SPAN> - Modifie =
+propri=E9taire et=20
+groupe d'un fichier. </P>
+<P class=3Doptions><SPAN class=3DlettreOption>-R</SPAN> modifie =
+r=E9cursivement les=20
+sous-r=E9pertoires.</P>
+<P class=3Dexemple>chown user1.equipe1 fichier</P>
+<P class=3Dcommande><SPAN class=3DnomCommande>chsh</SPAN> - Change le =
+shell appel=E9 =E0=20
+la connexion.</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-l</SPAN> liste des shells =
+
+disponibles,</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-s</SPAN> utilise le shell =
+de=20
+connexion indiqu=E9.</P>
+<P class=3Dexemple>chsh -s /bin/ksh </P>
+<P class=3Dcommande><SPAN class=3DnomCommande>cksum</SPAN> - Nombre =
+d'octets et=20
+somme de contr=F4le.</P>
+<P class=3Dcommande><SPAN class=3DnomCommande>clear</SPAN> - Efface =
+l'=E9cran.</P>
+<P class=3Dcommande><SPAN class=3DnomCommande>cmp</SPAN> - Compare deux=20
+fichiers.</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-l</SPAN> affiche le rang =
+de chaque=20
+octet diff=E9rent,</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-s</SPAN> n'affiche rien, =
+renvoie vrai=20
+ou faux.</P>
+<P class=3Dexemple>if cmp -s fichier1 fichier2; then =85</P>
+<P class=3Dcommande><SPAN class=3DnomCommande>col</SPAN> - =C9limine les =
+retours et=20
+sauts-de-ligne en arri=E8re.</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-b</SPAN> enl=E8ve tous =
+les retours en=20
+arri=E8re. </P>
+<P class=3Dexemple>man col | col -b &gt; col.man.txt</P>
+<P class=3Dcommande><SPAN class=3DnomCommande>compress</SPAN> - =
+Compression simple=20
+de fichier.</P>
+<P class=3Dcommande><SPAN class=3DnomCommande>cp</SPAN> - Copie de =
+fichiers.</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-R</SPAN> copie =
+r=E9cursive des=20
+sous-r=E9pertoires,</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-p</SPAN> garde =
+horodatage,=20
+propri=E9taire, permissions,</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-d</SPAN> copie les liens =
+symboliques=20
+en tant que tels.</P>
+<P class=3Dexemple>cp fichier fichier.sauve</P>
+<P class=3Dexemple>cp -Rdp fichier_* /autre/repertoire</P>
+<P class=3Dcommande><SPAN class=3DnomCommande>crontab</SPAN> - =C9dite =
+le fichier=20
+<SPAN class=3Dcode>crontab</SPAN> personnel.</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-l</SPAN> affiche le =
+contenu=20
+actuel,</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-e</SPAN> =E9dite le =
+fichier <SPAN=20
+class=3Dcode>crontab</SPAN>,</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-r</SPAN> supprime le =
+fichier <SPAN=20
+class=3Dcode>crontab</SPAN>.</P>
+<P class=3Dcommande><SPAN class=3DnomCommande>csh</SPAN> - Shell C.</P>
+<P class=3Dcommande><SPAN class=3DnomCommande>csplit</SPAN> - D=E9coupe =
+un fichier=20
+suivant des lignes de contexte. </P>
+<P class=3Doptions><SPAN class=3DlettreOption>-f</SPAN> pr=E9fixe pour =
+nommer les=20
+nouveaux fichiers.</P>
+<P class=3Dexemple>csplit -f prefixe fichier '/^$/' {*}</P>
+<P class=3DexplicationExemple>cr=E9e <SPAN class=3Dcode>prefixe00</SPAN> =
+<SPAN=20
+class=3Dcode>prefixe01</SPAN>=85 en d=E9coupant le fichier =E0 chaque =
+ligne vierge </P>
+<P class=3Dcommande><SPAN class=3DnomCommande>cut</SPAN> - Supprime une =
+partie de=20
+chaque ligne. </P>
+<P class=3Doptions><SPAN class=3DlettreOption>-b</SPAN> affiche les =
+caract=E8res=20
+indiqu=E9s,</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-f</SPAN> affiche les =
+champs=20
+indiqu=E9s,</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-d</SPAN> caract=E8re =
+s=E9parateur de=20
+champ </P>
+<P class=3Dexemple>ls -l | cut -b 20-28</P>
+<P class=3DexplicationExemple>affiche uniquement les caract=E8res 20 =E0 =
+28,=20
+c'est-=E0-dire le groupe des fichiers. </P>
+<P class=3Dcommande><SPAN class=3Dinitiale>d</SPAN><SPAN=20
+class=3DnomCommande>ate</SPAN> - Affiche la date et l'heure du =
+syst=E8me.</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-d</SPAN> indique la date =
+=E0=20
+afficher</P>
+<P class=3Doptions><SPAN class=3DlettreOption>+ </SPAN>cha=EEne de =
+format pour=20
+l'affichage.</P>
+<P class=3Dexemple>date +"Date =3D %D, Heure =3D %X"</P>
+<P class=3Dexemple>date -d 20030401 +"%A"</P>
+<P class=3DexplicationExemple>affiche "mardi" (1er avril 2003).</P>
+<P class=3Dcommande><SPAN class=3DnomCommande>dd</SPAN> - Copie =
+g=E9n=E9rique et=20
+conversion de fichiers.</P>
+<P class=3Doptions><SPAN class=3DlettreOption>if=3D</SPAN> nom du =
+fichier=20
+d'entr=E9e,</P>
+<P class=3Doptions><SPAN class=3DlettreOption>of=3D</SPAN> nom du =
+fichier de=20
+sortie,</P>
+<P class=3Doptions><SPAN class=3DlettreOption>bs=3D</SPAN> taille des =
+blocs =E0=20
+copier,</P>
+<P class=3Doptions><SPAN class=3DlettreOption>count=3D</SPAN> nombre =
+maximal de blocs=20
+=E0 copier,</P>
+<P class=3Doptions><SPAN class=3DlettreOption>skip=3D</SPAN> position de =
+d=E9but de=20
+lecture,</P>
+<P class=3Doptions><SPAN class=3DlettreOption>seek=3D</SPAN> position de =
+d=E9but=20
+d'=E9criture.</P>
+<P class=3Dexemple>dd if=3D/dev/fd0 of=3Ddisquette.img bs=3D1024 =
+count=3D1440</P>
+<P class=3Dcommande><SPAN class=3DnomCommande>df</SPAN> - Place =
+occup=E9e sur les=20
+syst=E8mes de fichiers. </P>
+<P class=3Doptions><SPAN class=3DlettreOption>-k</SPAN> affiche les =
+tailles en=20
+kilo-octets,</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-P</SPAN> affiche une =
+ligne=20
+d'en-t=EAte.</P>
+<P class=3Dexemple>df -k /tmp/sauvegarde</P>
+<P class=3Dcommande><SPAN class=3DnomCommande>diff</SPAN> - Trouve les =
+diff=E9rences=20
+entre des fichiers. </P>
+<P class=3Doptions><SPAN class=3DlettreOption>-i</SPAN> ignore les =
+diff=E9rences=20
+majuscule/minuscule,</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-b</SPAN> ignore les =
+diff=E9rences=20
+d'espaces blancs,</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-u</SPAN> utilise un =
+format compatible=20
+avec <SPAN class=3Dcode>patch</SPAN>,</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-r</SPAN> =E9tudie =
+r=E9cursivement les=20
+sous-r=E9pertoires.</P>
+<P class=3Dexemple>diff -u original copie &gt; modifs.patch </P>
+<P class=3Dcommande><SPAN class=3DnomCommande>dirname</SPAN> - Affiche =
+le r=E9pertoire=20
+d'un chemin d'acc=E8s. </P>
+<P class=3Dexemple>$ dirname /usr/src/linux/signal.c</P>
+<P class=3Dexemple>/usr/src/linux</P>
+<P class=3Dexemple>$</P>
+<P class=3Dcommande><SPAN class=3DnomCommande>dos2unix</SPAN> - =
+Conversion de texte=20
+du format Dos vers Unix.</P>
+<P class=3Dcommande><SPAN class=3DnomCommande>du</SPAN> - Statistiques =
+sur=20
+l'utilisation du disque.</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-a</SPAN> affiche les =
+statistiques=20
+pour les fichiers,</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-s</SPAN> affiche =
+seulement le=20
+total,</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-x</SPAN> ignore les =
+sous-r=E9pertoires=20
+sur autre syst=E8me de fichiers,</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-k</SPAN> affiche les =
+tailles en=20
+kilo-octets.</P>
+<P class=3Dcommande><SPAN class=3Dinitiale>e</SPAN><SPAN=20
+class=3DnomCommande>cho</SPAN> - Affiche une ligne de texte.</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-e</SPAN> interpr=E8te les =
+caract=E8res=20
+symboliques,</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-n</SPAN> =E9vite le =
+saut-de-ligne=20
+final.</P>
+<P class=3Dexemple>echo "Message d'avertissement" &gt;&amp;2</P>
+<P class=3Dexemple>echo -n "Votre choix&nbsp;:"</P>
+<P class=3Dexemple>echo -e "\r effectu=E9&nbsp;: " $i "%"</P>
+<P class=3Dexemple>echo -e "\007"</P>
+<P class=3Dcommande><SPAN class=3DnomCommande>ed</SPAN> - =C9diteur =
+ligne-=E0-ligne</P>
+<P class=3Dcommande><SPAN class=3DnomCommande>egrep</SPAN> - Synonyme de =
+<SPAN=20
+class=3Dcode>grep -E</SPAN></P>
+<P class=3Dcommande><SPAN class=3DnomCommande>emacs</SPAN> - =C9diteur =
+Gnu pleine=20
+page</P>
+<P class=3Doptions>Version X-Window&nbsp;: <SPAN =
+class=3Dcode>xemacs</SPAN>.</P>
+<P class=3Dcommande><SPAN class=3DnomCommande>env</SPAN> - Lance un =
+programme avec=20
+un environnement modifi=E9.</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-i</SPAN> D=E9marre dans =
+un=20
+environnement vide.</P>
+<P class=3Dexemple>env</P>
+<P class=3DexplicationExemple>affiche l'environnement en cours</P>
+<P class=3Dexemple>env -i /bin/sh</P>
+<P class=3DexplicationExemple>d=E9marre le shell dans un environnement =
+neuf.</P>
+<P class=3Dcommande><SPAN class=3DnomCommande>expand</SPAN> - Convertit =
+les=20
+tabulations en espaces.</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-t</SPAN> largeur de =
+tabulation=20
+d=E9sir=E9e,</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-i</SPAN> uniquement les =
+tabulations=20
+en d=E9but de ligne.</P>
+<P class=3Dexemple>expand -i &lt; script.sh &gt; listing.txt</P>
+<P class=3Dcommande><SPAN class=3DnomCommande>export</SPAN> - Passe une =
+variable=20
+dans l'environnement du shell.</P>
+<P class=3Dexemple>export REP_APPLI=3D/usr/local/lib/appli/</P>
+<P class=3Dexemple>VERSION_APPLI=3D1.5</P>
+<P class=3Dexemple>export VERSION_APPLI</P>
+<P class=3Dcommande><SPAN class=3DnomCommande>expr</SPAN> - =C9value des =
+
+expressions.</P>
+<P class=3Dexemple>expr 4 "*" 3 + 2 affiche 14</P>
+<P class=3DexplicationExemple>(les guillemets prot=E8gent l'=E9toile par =
+rapport au=20
+shell) </P>
+<P class=3Dcommande><SPAN class=3Dinitiale>f</SPAN><SPAN=20
+class=3DnomCommande>alse</SPAN> - =C9choue en ne faisant rien. </P>
+<P class=3Dexemple>until false; do =85</P>
+<P class=3Dcommande><SPAN class=3DnomCommande>fc</SPAN> - =C9dite la =
+derni=E8re ligne de=20
+l'historique avec l'=E9diteur mentionn=E9 dans la variable =
+d'environnement <SPAN=20
+class=3Dcode>FCEDIT</SPAN></P>
+<P class=3Dcommande><SPAN class=3DnomCommande>fg</SPAN> - Ram=E8ne un =
+job =E0=20
+l'avant-plan.</P>
+<P class=3Dcommande><SPAN class=3DnomCommande>fgrep</SPAN> - Synonyme de =
+<SPAN=20
+class=3Dcode>grep -F</SPAN></P>
+<P class=3Dcommande><SPAN class=3DnomCommande>file</SPAN> - Affiche le =
+type d'un=20
+fichier</P>
+<P class=3Dcommande><SPAN class=3DnomCommande>find</SPAN> - Recherche =
+des fichiers=20
+dans une arborescence. </P>
+<P class=3Doptions><SPAN class=3DlettreOption>-name <I>motif</I></SPAN> =
+recherche=20
+sur le nom du fichier,</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-regex <I>expr</I></SPAN> =
+recherche=20
+sur le nom complet,</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-atime <I>n</I></SPAN> =
+dernier acc=E8s=20
+il y a <I>n</I> jours,</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-ctime <I>n</I></SPAN> =
+derni=E8re modif.=20
+de l'=E9tat du fichier,</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-mtime <I>n</I></SPAN> =
+derni=E8re modif.=20
+du contenu du fichier,</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-perm <I>mode</I></SPAN> =
+autorisations=20
+d'acc=E8s au fichier,</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-size <I>n</I></SPAN> =
+taille du=20
+fichier (en blocs),</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-type <I>t</I></SPAN> type =
+du=20
+fichier,</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-print </SPAN>affiche les =
+noms des=20
+fichiers trouv=E9s,</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-exec =85\{\} \;</SPAN> =
+ex=E9cute l'action=20
+indiqu=E9e en rempla=E7ant <SPAN class=3Dcode>\{\}</SPAN> par le nom du =
+fichier,</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-ok =85\{\}\;</SPAN> <SPAN =
+
+class=3Dcode>exec</SPAN> avec confirmation.</P>
+<P class=3Dexemple>find /tmp -ctime +30 -ok rm \{\} \;</P>
+<P class=3Dexemple>find /home -name core -exec rm \{\} \;</P>
+<P class=3Dcommande><SPAN class=3DnomCommande>fold</SPAN> - Coupe les =
+lignes d'un=20
+fichier =E0 une largeur donn=E9e.</P>
+<P class=3Dcommande><SPAN class=3DnomCommande>ftp</SPAN> - Transfert de =
+fichiers=20
+entres machines.</P>
+<P class=3Dcommande><SPAN class=3DnomCommande>fuser</SPAN> - Identifie =
+les processus=20
+utilisant un fichier. </P>
+<P class=3Doptions><SPAN class=3DlettreOption>-k</SPAN> leur envoie le =
+signal=20
+SIGKILL,</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-i</SPAN> confirmation =
+avant d'envoyer=20
+le signal,</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-m</SPAN> tous processus =
+acc=E9dant au=20
+syst=E8me de fichiers. </P>
+<P class=3Dexemple>fuser -k /mnt/cdrom </P>
+<P class=3Dcommande><SPAN class=3Dinitiale>g</SPAN><SPAN=20
+class=3DnomCommande>rep</SPAN> - Affiche les lignes correspondant =E0 un =
+motif.</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-E</SPAN> le motif est une =
+expression=20
+rationnelle =E9tendue,</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-F</SPAN> le motif est une =
+cha=EEne pas=20
+une expression,</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-i</SPAN> ignore =
+diff=E9rences=20
+majuscules/minuscules,</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-v</SPAN> affiche les =
+lignes ne=20
+correspondant pas,</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-l</SPAN> affiche =
+seulement le nom des=20
+fichiers. </P>
+<P class=3Dexemple>grep -i "MoTiF" fichiers_*</P>
+<P class=3Dexemple>grep -v "absent" fichier </P>
+<P class=3Dcommande><SPAN class=3DnomCommande>groups</SPAN> - Affiche =
+les groupes=20
+d'un utilisateur. </P>
+<P class=3Dcommande><SPAN class=3DnomCommande>gunzip</SPAN> - =
+D=E9compresse un fichier=20
+<SPAN class=3Dcode>.gz</SPAN>.</P>
+<P class=3Dcommande><SPAN class=3DnomCommande>gzip</SPAN> - Compresse un =
+
+fichier.</P>
+<P class=3Dcommande><SPAN class=3Dinitiale>h</SPAN><SPAN=20
+class=3DnomCommande>ead</SPAN> - Affiche le d=E9but d'un fichier. </P>
+<P class=3Doptions><SPAN class=3DlettreOption>-c <I>n</I></SPAN> affiche =
+les=20
+<I>n</I> premiers octets,</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-n <I>n</I></SPAN> affiche =
+les=20
+<I>n</I> premi=E8res lignes.</P>
+<P class=3Dcommande><SPAN class=3DnomCommande>hostid</SPAN> - Affiche =
+l'identifiant=20
+de la machine</P>
+<P class=3Dcommande><SPAN class=3DnomCommande>hostname</SPAN> - Affiche =
+le nom de la=20
+machine</P>
+<P class=3Dcommande><SPAN class=3Dinitiale>i</SPAN><SPAN=20
+class=3DnomCommande>conv</SPAN> - Convertit des textes d'un jeu de =
+caract=E8res vers=20
+un autre</P>
+<P class=3Dexemple>iconv -f LATIN1 -t UTF8 &lt; fichier</P>
+<P class=3Dcommande><SPAN class=3DnomCommande>id</SPAN> - Affiche les =
+UIDs et GIDs=20
+effectifs et r=E9els.</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-u</SPAN> affiche =
+seulement l'UID,</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-g</SPAN> affiche =
+seulement le=20
+GID,</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-r</SPAN> affiche les =
+identifiants=20
+r=E9els. </P>
+<P class=3Dexemple>if [ $(id -u) =3D=3D 0 ]; then=85 </P>
+<P class=3Dcommande><SPAN class=3Dinitiale>j</SPAN><SPAN=20
+class=3DnomCommande>obs</SPAN> - Affiche la liste des jobs en cours.</P>
+<P class=3Dcommande><SPAN class=3DnomCommande>join</SPAN> - Fusionne les =
+lignes de=20
+deux fichiers tri=E9s.</P>
+<P class=3Dexemple>join fichier_1 fichier_2 &gt; fichier_3</P>
+<P class=3Dcommande><SPAN class=3Dinitiale>k</SPAN><SPAN=20
+class=3DnomCommande>ill</SPAN> - Envoie un signal =E0 un processus.</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-<I>num=E9ro</I></SPAN> le =
+signal dont=20
+le num=E9ro est indiqu=E9,</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-l</SPAN> affiche la ligne =
+des signaux=20
+disponibles. </P>
+<P class=3Dexemple>kill -9 30582 </P>
+<P class=3Dcommande><SPAN class=3DnomCommande>killall</SPAN> - Envoie un =
+signal aux=20
+processus de m=EAme nom.</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-i</SPAN> demande =
+confirmation=20
+individuellement,</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-l</SPAN> affiche la liste =
+des signaux=20
+disponibles.</P>
+<P class=3Dexemple>killall xterm </P>
+<P class=3Dcommande><SPAN class=3DnomCommande>ksh</SPAN> - Shell Korn =
+</P>
+<P class=3Dcommande><SPAN class=3Dinitiale>l</SPAN><SPAN=20
+class=3DnomCommande>ess</SPAN> - Affiche un fichier page-par-page. </P>
+<P class=3Doptions>(alternative libre et puissante =E0 <SPAN=20
+class=3Dcode>more</SPAN>.)</P>
+<P class=3Dcommande><SPAN class=3DnomCommande>lex</SPAN> - =
+G=E9n=E9rateur d'analyseur=20
+lexical</P>
+<P class=3Dcommande><SPAN class=3DnomCommande>ln</SPAN> - Cr=E9e des =
+liens entre=20
+fichiers. </P>
+<P class=3Doptions><SPAN class=3DlettreOption>-f</SPAN> force =
+l'=E9crasement du=20
+fichier s'il existe,</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-s</SPAN> cr=E9e un lien =
+symbolique.</P>
+<P class=3Dexemple>ln -sf appli-1.4.sh appli </P>
+<P class=3Dcommande><SPAN class=3DnomCommande>logger</SPAN> - Journalise =
+un message=20
+syst=E8me.</P>
+<P class=3Dcommande><SPAN class=3DnomCommande>login</SPAN> - Relance une =
+connexion=20
+sur le syst=E8me.</P>
+<P class=3Dcommande><SPAN class=3DnomCommande>logname</SPAN> - Nom de =
+connexion de=20
+l'utilisateur.</P>
+<P class=3Dcommande><SPAN class=3DnomCommande>lp</SPAN> - Requ=EAte =
+d'impression</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-d</SPAN> s=E9lection de=20
+l'imprimante</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-n</SPAN> nombre de =
+copies</P>
+<P class=3Dexemple>pr -l 66 appli.c | lp -d listing</P>
+<P class=3Dcommande><SPAN class=3DnomCommande>ls</SPAN> - Affiche =
+l'=E9tat des=20
+fichiers et le contenu des r=E9pertoires. </P>
+<P class=3Doptions><SPAN class=3DlettreOption>-a</SPAN> aussi les =
+fichiers=20
+commen=E7ant par un point,</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-d</SPAN> noms des =
+r=E9pertoires, pas=20
+leur contenu,</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-i</SPAN> affiche les =
+num=E9ros=20
+d'i-noeud,</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-l</SPAN> utilise un =
+format=20
+d'affichage long,</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-R</SPAN> affiche =
+r=E9cursivement le=20
+contenu des sous-r=E9pertoires.</P>
+<P class=3Dexemple>ls -al /home/usera</P>
+<P class=3Dexemple>ls -lR /var/ftp/pub &gt; =
+/var/ftp/liste-fichiers.txt</P>
+<P class=3Dcommande><SPAN class=3Dinitiale>m</SPAN><SPAN=20
+class=3DnomCommande>ake</SPAN> - Construction d'application, avec =
+gestion des=20
+d=E9pendances.</P>
+<P class=3Dcommande><SPAN class=3DnomCommande>man</SPAN> - Affiche une =
+page du=20
+manuel Unix.</P>
+<P class=3Doptions><SPAN class=3DlettreOption><I>num=E9ro</I></SPAN> =
+recherche dans la=20
+section indiqu=E9e,</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-a</SPAN> affiche toutes =
+les pages=20
+correspondant,</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-t</SPAN> =E9crit la page =
+Postscript sur=20
+la sortie standard,</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-k</SPAN> =E9quivalent =E0 =
+la commande=20
+<SPAN class=3Dcode>apropos</SPAN>.</P>
+<P class=3Dexemple>man 1 c</P>
+<P class=3Dexemple>man -k socket </P>
+<P class=3Dcommande><SPAN class=3DnomCommande>md5sum</SPAN> - Calcule et =
+affiche un=20
+compte-rendu MD5.</P>
+<P class=3Dcommande><SPAN class=3DnomCommande>mkdir</SPAN> - Cr=E9e des=20
+r=E9pertoires.</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-p</SPAN> cr=E9e =
+r=E9cursivement les=20
+r=E9pertoires parents,</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-m <I>mode</I></SPAN> fixe =
+les=20
+autorisations d'acc=E8s.</P>
+<P class=3Dexemple>mkdir -p /var/lib/new-app/font/big </SPAN></P>
+<P class=3Dcommande><SPAN class=3DnomCommande>mkfifo</SPAN> - Cr=E9e des =
+FIFOs (tubes=20
+nomm=E9s).</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-m <I>mode</I></SPAN> fixe =
+les=20
+autorisations d'acc=E8s.</P>
+<P class=3Dexemple>mkfifo -m 666 /tmp/fifo_serveur </P>
+<P class=3Dcommande><SPAN class=3DnomCommande>mknod</SPAN> - Cr=E9e des =
+fichiers=20
+sp=E9ciaux.</P>
+<P class=3Doptions><SPAN class=3DlettreOption>b</SPAN> ou <SPAN=20
+class=3DlettreOption>c</SPAN> fichier sp=E9cial bloc ou caract=E8re </P>
+<P class=3Dexemple>mknod /dev/hda1 b 3 1</P>
+<P class=3DexplicationExemple>cr=E9e le noeud de num=E9ros majeur/mineur =
+3/1. </P>
+<P class=3Dcommande><SPAN class=3DnomCommande>more</SPAN> - Consulte un =
+fichier page=20
+par page (voir <SPAN class=3Dcode>less</SPAN>)</P>
+<P class=3Dcommande><SPAN class=3DnomCommande>mv</SPAN> - D=E9place ou =
+renomme des=20
+fichiers. </P>
+<P class=3Doptions><SPAN class=3DlettreOption>-f</SPAN> force =
+l'=E9crasement du=20
+fichier destination.</P>
+<P class=3Dexemple>for i in *.JPG; do mv $i ${i%JPG}jpg; done</P>
+<P class=3DexplicationExemple>renomme tous les fichiers .JPG en .jpg =
+</P>
+<P class=3Dcommande><SPAN class=3Dinitiale>n</SPAN><SPAN=20
+class=3DnomCommande>ice</SPAN> - Ex=E9cute un programme avec une =
+courtoisie=20
+d'ordonnancement modifi=E9e.</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-n <I>valeur</I></SPAN> =
+augmente la=20
+courtoisie de la valeur.</P>
+<P class=3Dcommande><SPAN class=3DnomCommande>nl</SPAN> - Num=E9rote les =
+lignes d'un=20
+fichier.</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-f a</SPAN> num=E9rote =
+aussi les lignes=20
+vides.</P>
+<P class=3Dcommande><SPAN class=3DnomCommande>nohup</SPAN> - Ex=E9cute =
+un programme en=20
+le rendant insensible aux d=E9connexions.</P>
+<P class=3Dexemple>$ nohup ~/bin/calcul &amp;</P>
+<P class=3Dexemple>[1] 17300</P>
+<P class=3Dexemple>$ exit</P>
+<P class=3Dcommande><SPAN class=3Dinitiale>o</SPAN><SPAN =
+class=3DnomCommande>d</SPAN>=20
+- Affiche le contenu d'un fichier en octal ou sous d'autres formats.</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-c</SPAN> affiche les =
+caract=E8res=20
+imprimables en Ascii,</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-x</SPAN> affiche les =
+codes=20
+hexad=E9cimaux.</P>
+<P class=3Dcommande><SPAN class=3Dinitiale>p</SPAN><SPAN=20
+class=3DnomCommande>asswd</SPAN> - Change le mot de passe.</P>
+<P class=3Dexemple>$ passwd</P>
+<P class=3Dexemple># passwd utilisateur</P>
+<P class=3Dcommande><SPAN class=3DnomCommande>patch</SPAN> - Applique =
+une s=E9rie de=20
+modifications =E0 un fichier.</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-p<I>n</I></SPAN> enl=E8ve =
+<I>n</I>=20
+r=E9pertoires au d=E9but des noms de fichiers</P>
+<P class=3Dexemple>$ patch -p1 ../new_version/patch_1</SPAN></P>
+<P class=3Dcommande><SPAN class=3DnomCommande>pathchk</SPAN> - V=E9rifie =
+la validit=E9=20
+d'un nom de fichier. </P>
+<P class=3Doptions><SPAN class=3DlettreOption>-p</SPAN> v=E9rification =
+stricte de la=20
+portabilit=E9.</P>
+<P class=3Dexemple>if pathchk "$rep/$fic"&nbsp;; then=85 </P>
+<P class=3Dcommande><SPAN class=3DnomCommande>perl</SPAN> - =
+Interpr=E9teur du langage=20
+Perl. </P>
+<P class=3Doptions><SPAN class=3DlettreOption>-w</SPAN> mode de =
+v=E9rification=20
+stricte</P>
+<P class=3Dcommande><SPAN class=3DnomCommande>ping</SPAN> - Test de =
+liaison entre=20
+machines.</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-c</SPAN> nombre de =
+tentatives</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-w</SPAN> d=E9lai maximal =
+en=20
+secondes</P>
+<P class=3Dcommande><SPAN class=3DnomCommande>pr</SPAN> - Pr=E9pare des =
+fichiers de=20
+texte pour l'impression.</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-h <I>texte</I></SPAN> =
+indique=20
+l'en-t=EAte de chaque page,</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-l <I>n</I></SPAN> affiche =
+<I>n</I>=20
+lignes par pages,</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-t</SPAN> supprime les =
+en-t=EAtes et=20
+pieds de pages.</P>
+<P class=3Dcommande><SPAN class=3DnomCommande>printf</SPAN> - Affiche =
+des donn=E9es=20
+num=E9riques format=E9es.</P>
+<P class=3Dexemple>printf "%05d %4.2f" $x $y</P>
+<P class=3Dcommande><SPAN class=3DnomCommande>ps</SPAN> - Affiche =
+l'=E9tat des=20
+processus en cours.</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-ax </SPAN>tous les =
+processus=20
+(BSD)</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-u</SPAN> informations =
+compl=E8tes=20
+(BSD)</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-e</SPAN> tous les =
+processus=20
+(SysV)</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-f</SPAN> informations =
+compl=E8tes=20
+(SysV)</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-w</SPAN> lignes =
+larges.</P>
+<P class=3Dexemple>ps -aux&nbsp;&nbsp; (BSD)</P>
+<P class=3Dexemple>ps -ef&nbsp;&nbsp;&nbsp; (SysV)</P>
+<P class=3Dcommande><SPAN class=3DnomCommande>pwd</SPAN> - Affiche le =
+nom du=20
+r=E9pertoire de travail.</P>
+<P class=3Dcommande><SPAN class=3Dinitiale>q</SPAN><SPAN=20
+class=3DnomCommande>uota</SPAN> - Affiche les quotas d'utilisation du =
+disque.</P>
+<P class=3Dcommande><SPAN class=3Dinitiale>r</SPAN><SPAN =
+class=3DnomCommande>cp</SPAN>=20
+- Cop=EEe de fichiers entre syst=E8mes diff=E9rents.</P>
+<P class=3Dcommande><SPAN class=3DnomCommande>renice</SPAN> - Modifie la =
+priorit=E9=20
+d'un processus en cours.</P>
+<P class=3Dexemple>renice +20 14210 </P>
+<P class=3Dcommande><SPAN class=3DnomCommande>rev</SPAN> - Inverse les =
+lignes d'un=20
+fichier&nbsp; (voir aussi <SPAN class=3Dcode>tac</SPAN>).</P>
+<P class=3Dcommande><SPAN class=3DnomCommande>rlogin</SPAN> - Connexion =
+sur un=20
+syst=E8me distant</P>
+<P class=3Doptions>(pr=E9f=E9rer <SPAN class=3Dcode>ssh</SPAN>)</P>
+<P class=3Dcommande><SPAN class=3DnomCommande>rm</SPAN> - Efface des =
+fichiers.</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-f</SPAN> pas de =
+confirmation,</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-i</SPAN> confirmation =
+avant chaque=20
+effacement,</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-r</SPAN> efface =
+r=E9cursivement les=20
+sous-r=E9pertoires.</P>
+<P class=3Dexemple>rm -rf /home/usera/tmp </P>
+<P class=3Dcommande><SPAN class=3DnomCommande>rmdir</SPAN> - Suppression =
+de=20
+r=E9pertoires vides. </P>
+<P class=3Dcommande><SPAN class=3DnomCommande>rsh</SPAN> - Ex=E9cution =
+de commande sur=20
+syst=E8me distant.</P>
+<P class=3Doptions>(pr=E9f=E9rer <SPAN class=3Dcode>ssh</SPAN>).</P>
+<P class=3Dcommande><SPAN class=3Dinitiale>s</SPAN><SPAN=20
+class=3DnomCommande>cript</SPAN> - Enregistre une session de travail =
+.</P>
+<P class=3Doptions>-<SPAN class=3DlettreOption>a <I>fic</I></SPAN> =
+ajoute le=20
+r=E9sultat dans le fichier. </P>
+<P class=3Dcommande><SPAN class=3DnomCommande>sed</SPAN> - =C9diteur =
+non-interactif.=20
+</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-e "=85"</SPAN> commandes =
+fournies sur=20
+la ligne,</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-f <I>fic</I></SPAN> =
+commandes dans un=20
+fichier,</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-n</SPAN> supprime =
+l'affichage des=20
+lignes trait=E9es.</P>
+<P class=3Doptions>Commandes essentielles de Sed&nbsp;:</P>
+<P class=3Doptions><SPAN class=3DlettreOption>p</SPAN> affiche la ligne=20
+s=E9lectionn=E9e</P>
+<P class=3Doptions><SPAN class=3DlettreOption>d</SPAN> ignore la ligne=20
+s=E9lectionn=E9e</P>
+<P class=3Doptions><SPAN class=3DlettreOption>n</SPAN> affiche la ligne =
+et passe =E0=20
+la suivante</P>
+<P class=3Doptions><SPAN class=3DlettreOption>s</SPAN> recherche un =
+motif et le=20
+remplace</P>
+<P class=3Dexemple>sed -ne '1,/^$/p' &lt; mail.txt</P>
+<P class=3DexplicationExemple>extrait l'en-t=EAte d'un mail.</P>
+<P class=3Dcommande><SPAN class=3DnomCommande>sh</SPAN> - Shell =
+Bourne.</P>
+<P class=3Dcommande><SPAN class=3DnomCommande>sleep</SPAN> - Attend une =
+dur=E9e=20
+d=E9termin=E9e. </P>
+<P class=3Dexemple>sleep 14</P>
+<P class=3DexplicationExemple>(14 secondes)</P>
+<P class=3Dexemple>sleep 3m</P>
+<P class=3DexplicationExemple>(3 minutes)</P>
+<P class=3Dcommande><SPAN class=3DnomCommande>sort</SPAN> - Trie les =
+lignes d'un=20
+fichier texte. </P>
+<P class=3Doptions>&nbsp;<SPAN class=3DlettreOption>-b</SPAN> ignorer =
+les blancs en=20
+d=E9but de ligne,</P>
+<P class=3Doptions>&nbsp;<SPAN class=3DlettreOption>-f</SPAN> ignorer =
+les=20
+diff=E9rences majuscules/minuscules,</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-r</SPAN> inverser l'ordre =
+du tri.</P>
+<P class=3Dcommande><SPAN class=3DnomCommande>split</SPAN> - D=E9coupe =
+un fichier en=20
+diff=E9rentes partie. </P>
+<P class=3Doptions><SPAN class=3DlettreOption>-l <I>n</I></SPAN> en =
+fichiers de=20
+<I>n</I> lignes,</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-b <I>n</I> </SPAN>en =
+fichiers de=20
+taille <I>n</I>.</P>
+<P class=3Dexemple>split -b 1440k gros_fichier disquette_ </P>
+<P class=3Dcommande><SPAN class=3DnomCommande>ssh</SPAN> - Connexion =
+s=E9curis=E9e sur=20
+un syst=E8me distant.</P>
+<P class=3Dexemple>ssh user@hostname</P>
+<P class=3Dexemple>ssh -l user hostname /usr/bin/commande</P>
+<P class=3Dcommande><SPAN class=3DnomCommande>strings</SPAN> - Cherche =
+les cha=EEnes=20
+Ascii dans un fichier.</P>
+<P class=3Dcommande><SPAN class=3DnomCommande>stty</SPAN> - =
+Configuration du=20
+terminal.</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-a</SPAN> affiche la =
+configuration en=20
+cours,</P>
+<P class=3Doptions><SPAN class=3DlettreOption>sane</SPAN><B><I> =
+</I></B>revient en=20
+configuration normale,</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-echo</SPAN> pas d'=E9cho =
+des caract=E8res=20
+frapp=E9s,</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-icanon min 0 time =
+1</SPAN> lecture=20
+des caract=E8res =E0 la vol=E9e.</P>
+<P class=3Dcommande><SPAN class=3DnomCommande>su</SPAN> - Ex=E9cute un =
+shell avec un=20
+UID et un GID diff=E9rents.</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-</SPAN> ex=E9cute un =
+shell de login.=20
+</P>
+<P class=3Dcommande><SPAN class=3DnomCommande>sum</SPAN> - Somme de =
+contr=F4le, et=20
+nombre de blocs.</P>
+<P class=3Dcommande><SPAN class=3Dinitiale>t</SPAN><SPAN =
+class=3DnomCommande>ac</SPAN>=20
+- Concat=E8ne et affiche des fichiers =E0 l'envers.</P>
+<P class=3Dcommande><SPAN class=3DnomCommande>tail</SPAN> - Affiche la =
+fin d'un=20
+fichier. </P>
+<P class=3Doptions><SPAN class=3DlettreOption>-<I>num</I></SPAN> affiche =
+le nombre=20
+de lignes indiqu=E9,</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-f</SPAN> affiche en =
+continu les=20
+modifications.</P>
+<P class=3Dexemple>tail -f /var/log/messages </P>
+<P class=3Dcommande><SPAN class=3DnomCommande>tar</SPAN> - Utilitaire de =
+gestion=20
+d'archives.</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-f <I>fic</I></SPAN> nom =
+de=20
+l'archive,</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-c</SPAN> cr=E9e une =
+archive,</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-t</SPAN> affiche le =
+contenu d'une=20
+archive,</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-x</SPAN> extrait le =
+contenu d'une=20
+archive,</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-z</SPAN> invoque Gnu gzip =
+pour les=20
+(d=E9)compressions,</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-j </SPAN>invoque bzip2 =
+pour les=20
+(d=E9)compressions,</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-v</SPAN> mode =
+volubile.</P>
+<P class=3Dexemple>tar -czf save.tar.gz /home/usera/*</P>
+<P class=3Dexemple>tar -xzf appli-1.10.tgz </P>
+<P class=3Dcommande><SPAN class=3DnomCommande>tcl</SPAN> - =
+Interpr=E9teur du langage=20
+Tcl (voir aussi <SPAN class=3Dcode>wish</SPAN>).</P>
+<P class=3Dcommande><SPAN class=3DnomCommande>tee</SPAN> - Copie =
+entr=E9e sur sortie=20
+standard et dans un fichier. </P>
+<P class=3Doptions><SPAN class=3DlettreOption>-a</SPAN> ajout en fin de =
+fichier sans=20
+=E9crasement. </P>
+<P class=3Dexemple>=85| tee hublot_1.log | =85 </P>
+<P class=3Dcommande><SPAN class=3DnomCommande>telnet</SPAN> - Connexion =
+sur un=20
+syst=E8me distant.</P>
+<P class=3Doptions>(pr=E9f=E9rer <SPAN class=3Dcode>ssh</SPAN>)</P>
+<P class=3Dcommande><SPAN class=3DnomCommande>test</SPAN> - Type d'un =
+fichier, ou=20
+comparaison de valeurs.</P>
+<P class=3Doptions>Synonyme de la commande shell <SPAN =
+class=3Dcode>[=85]</SPAN>.</P>
+<P class=3Dexemple>if test -f $fichier&nbsp;; then</P>
+<P class=3Dcommande><SPAN class=3DnomCommande>time</SPAN> - =
+Chronom=E9tre une commande=20
+simple. </P>
+<P class=3Dcommande><SPAN class=3DnomCommande>touch</SPAN> - Modifie =
+l'horodatage=20
+d'un fichier. </P>
+<P class=3Doptions><SPAN class=3DlettreOption>-t <I>MMJJhhmm</I></SPAN> =
+utilise=20
+l'horodatage indiqu=E9,</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-r <I>fichier</I></SPAN> =
+utilise=20
+l'horodatage du fichier,</P>
+<P class=3Dcommande><SPAN class=3DnomCommande>tr</SPAN> - Transpose ou =
+=E9limine des=20
+caract=E8res. </P>
+<P class=3Dexemple>tr =E0=E2=E4=E7=E9=E8=EA=EF=EE=F4=F6=F9=FB' =
+aaaceeeiioouu'|=85</P>
+<P class=3Dcommande><SPAN class=3DnomCommande>true</SPAN> - R=E9ussit =
+=E0 ne rien=20
+faire=85</P>
+<P class=3Dexemple>while true; do =85 </P>
+<P class=3Dcommande><SPAN class=3DnomCommande>tty</SPAN> - Affiche le =
+nom du=20
+terminal de l'entr=E9e standard. </P>
+<P class=3Dcommande><SPAN class=3Dinitiale>u</SPAN><SPAN=20
+class=3DnomCommande>name</SPAN> - Affiche des informations sur le =
+syst=E8me.</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-m</SPAN> type de =
+mat=E9riel,</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-n </SPAN>nom =
+d'h=F4te,</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-r</SPAN> version du =
+syst=E8me,</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-s</SPAN> syst=E8me =
+d'exploitation,</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-a</SPAN> toutes les =
+informations.</P>
+<P class=3Dcommande><SPAN class=3DnomCommande>uncompress</SPAN> - =
+D=E9compression de=20
+fichier <SPAN class=3Dcode>.Z</SPAN>.</P>
+<P class=3Dcommande><SPAN class=3DnomCommande>unexpand</SPAN> - =
+Convertit les=20
+espaces en tabulation.</P>
+<P class=3Doptions>(voir aussi <SPAN class=3Dcode>expand</SPAN>)</P>
+<P class=3Dcommande><SPAN class=3DnomCommande>uniq</SPAN> - =D4te les =
+lignes=20
+dupliqu=E9es d'un fichier tri=E9.</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-u</SPAN> n'affiche que =
+les lignes=20
+uniques,</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-d</SPAN> n'affiche que =
+les lignes=20
+dupliqu=E9es,</P>
+<P class=3Doptions><SPAN class=3DlettreOption>-c</SPAN> affiche le =
+nombre=20
+d'occurrences des lignes. </P>
+<P class=3Dcommande><SPAN class=3DnomCommande>unix2dos</SPAN> - =
+Conversion de textes=20
+du format Unix au format Dos.</P>
+<P class=3Dcommande><SPAN class=3DnomCommande>unzip</SPAN> - =
+D=E9compresse un fichier=20
+<SPAN class=3Dcode>.zip</SPAN>.</P>
+<P class=3Dcommande><SPAN class=3DnomCommande>uptime</SPAN> - Temps =
+fonctionnement=20
+et charge syst=E8me.</P>
+<P class=3Dcommande><SPAN class=3DnomCommande>users</SPAN> - Nom des =
+utilisateurs=20
+connect=E9s.</P>
+<P class=3Dcommande><SPAN class=3DnomCommande>uudecode</SPAN> - D=E9code =
+un fichier=20
+<SPAN class=3Dcode>.uu</SPAN>.</P>
+<P class=3Dcommande><SPAN class=3DnomCommande>uuencode</SPAN> - Code un =
+fichier=20
+binaire en Ascii.</P>
+<P class=3Dcommande><SPAN class=3Dinitiale>V</SPAN><SPAN =
+class=3DnomCommande>i</SPAN>=20
+- =C9diteur interactif</P>
+<P class=3Doptions>Version X-Window&nbsp;: <SPAN =
+class=3Dcode>gvim</SPAN></P>
+<P class=3Dcommande><SPAN class=3Dinitiale>w</SPAN><SPAN=20
+class=3DnomCommande>ait</SPAN> - Attend la fin d'un processus.</P>
+<P class=3Dexemple>$ ./commande &amp;</P>
+<P class=3Dexemple>[1] 2927&nbsp;&nbsp;&nbsp; ./commande</P>
+<P class=3Dexemple>$ wait 2927</P>
+<P class=3Dexemple>[1]+ Done&nbsp;&nbsp; ./commande</P>
+<P class=3Dexemple>$</P>
+<P class=3Dcommande><SPAN class=3DnomCommande>wc</SPAN> - Nombres de =
+caract=E8res,=20
+mots et lignes d'un fichier.</P>
+<P class=3Dcommande><SPAN class=3DnomCommande>whereis</SPAN> - Recherche =
+les=20
+fichiers ex=E9cutables, les sources et les pages de manuel d'une =
+commande.</P>
+<P class=3Dcommande><SPAN class=3DnomCommande>which</SPAN> - Affiche le =
+chemin=20
+d'acc=E8s des commandes.</P>
+<P class=3Dcommande><SPAN class=3DnomCommande>who</SPAN> - Montre qui =
+est=20
+connect=E9.</P>
+<P class=3Dcommande><SPAN class=3DnomCommande>whoami</SPAN> - Affiche =
+notre UID=20
+effectif.</P>
+<P class=3Dcommande><SPAN class=3DnomCommande>wish</SPAN> - =
+Interpr=E9teur Tcl avec=20
+biblioth=E8que Tk.</P>
+<P class=3Dcommande><SPAN class=3Dinitiale>x</SPAN><SPAN=20
+class=3DnomCommande>args</SPAN> - Construit et ex=E9cute une ligne de =
+commande.</P>
+<P class=3Dexemple>find . -name "*.c" | xargs grep "init()" </SPAN></P>
+<P class=3Dcommande><SPAN class=3Dinitiale>y</SPAN><SPAN=20
+class=3DnomCommande>acc</SPAN> - G=E9n=E9rateur d'analyseur =
+syntaxique.</P>
+<P class=3Dcommande><SPAN class=3DnomCommande>yes</SPAN> - Affiche =
+ind=E9finiment une=20
+cha=EEne</P>
+<P class=3Doptions>(par d=E9faut <SPAN class=3Dcode>y</SPAN>)</P>
+<P class=3Dexemple>yes | rm -r /var/old-backup/</P>
+<P class=3Dcommande><SPAN class=3Dinitiale>z</SPAN><SPAN=20
+class=3DnomCommande>cat</SPAN> - Affiche le contenu d'un fichier =
+compress=E9.</P>
+<P class=3Dcommande><SPAN class=3DnomCommande>zip</SPAN> - Compresse un =
+fichier.</P>
+<H2>Expressions rationnelles</H2>
+<P class=3DexplicationExemple><SPAN class=3Dcode>grep</SPAN>, =
+<SPAN>sed</SPAN>,=20
+<SPAN class=3Dcode>find -regex</SPAN> utilisent des expressions =
+rationnelles=20
+<I>simples</I>.</P>
+<P class=3DexplicationExemple><SPAN class=3Dcode>grep -e</SPAN>, <SPAN=20
+class=3Dcode>awk</SPAN>, <SPAN class=3Dcode>perl</SPAN> utilisent des =
+expressions=20
+rationnelles <I>=E9tendues</I>.</P>
+<H3>=C9l=E9ments communs </H3>
+<P class=3Doptions><SPAN class=3DlettreOption>\</SPAN> supprime la =
+signification des=20
+caract=E8res sp=E9ciaux,</P>
+<P class=3Dexemple>prix=3D25\$</P>
+<P class=3Doptions><SPAN class=3DlettreOption>.</SPAN> remplace =
+n'importe quel=20
+caract=E8re,</P>
+<P class=3Dexemple>g.n.rique</P>
+<P class=3Doptions><SPAN class=3DlettreOption>^</SPAN> repr=E9sente le =
+d=E9but de=20
+cha=EEne,</P>
+<P class=3Doptions><SPAN class=3DlettreOption>$</SPAN> repr=E9sente la =
+fin de=20
+cha=EEne,</P>
+<P class=3Dexemple>^$</P>
+<P class=3DexplicationExemple>ligne vide</P>
+<P class=3Doptions><SPAN class=3DlettreOption>*</SPAN> indique z=E9ro, =
+une ou=20
+plusieurs occurrences,</P>
+<P class=3Doptions><SPAN class=3DlettreOption>[ ]</SPAN> repr=E9sente =
+une liste, un=20
+intervalle ou une classe,</P>
+<P class=3Dexemple>[e=E9=EA=E8=EB]</P>
+<P class=3Dexemple>[0-9]</P>
+<P class=3Dexemple>[[:upper:]]</P>
+<P class=3Doptions><SPAN class=3DlettreOption>\<I>i</I></SPAN> contenu =
+du=20
+<I>i</I><SUP>=E8me</SUP> regroupement entre parenth=E8ses.</P>
+<H3>Classes de caract=E8res</H3>
+<P class=3Doptions><SPAN class=3DlettreOption>alpha</SPAN> caract=E8res=20
+alphab=E9tiques,</P>
+<P class=3Doptions><SPAN class=3DlettreOption>digit</SPAN> chiffres =
+d=E9cimaux,</P>
+<P class=3Doptions><SPAN class=3DlettreOption>xdigit</SPAN> chiffres=20
+hexad=E9cimaux,</P>
+<P class=3Doptions><SPAN class=3DlettreOption>alnum</SPAN> caract=E8res=20
+alphanum=E9riques,</P>
+<P class=3Doptions><SPAN class=3DlettreOption>lower</SPAN> =
+minuscules,</P>
+<P class=3Doptions><SPAN class=3DlettreOption>upper</SPAN> =
+majuscules,</P>
+<P class=3Doptions><SPAN class=3DlettreOption>blank</SPAN> caract=E8res =
+blancs,</P>
+<P class=3Doptions><SPAN class=3DlettreOption>space</SPAN> caract=E8res=20
+s=E9parateurs,</P>
+<P class=3Doptions><SPAN class=3DlettreOption>punct</SPAN> signes de=20
+ponctuation,</P>
+<P class=3Doptions><SPAN class=3DlettreOption>graph</SPAN> symboles =
+visibles,</P>
+<P class=3Doptions><SPAN class=3DlettreOption>print</SPAN> symboles =
+visibles ou=20
+blancs,</P>
+<P class=3Doptions><SPAN class=3DlettreOption>cntrl</SPAN> caract=E8res =
+de contr=F4le=20
+d'impression.</P>
+<H3>=C9l=E9ments des expressions rationnelles =E9tendues</H3>
+<P class=3Doptions><SPAN class=3DlettreOption>|</SPAN> repr=E9sente une=20
+alternative,</P>
+<P class=3Dexemple>Y|y</P>
+<P class=3Doptions><SPAN class=3DlettreOption>+</SPAN> r=E9clame une ou =
+plusieurs=20
+occurrences,</P>
+<P class=3Doptions><SPAN class=3DlettreOption>?</SPAN> r=E9clame z=E9ro =
+ou une=20
+occurrence,</P>
+<P class=3Dexemple>[+-]?[[:digit:]]+</P>
+<P class=3Doptions><SPAN class=3DlettreOption>{ }</SPAN> r=E9clament un =
+certain nombre=20
+de r=E9p=E9titions,</P>
+<P class=3Doptions><SPAN class=3DlettreOption>( )</SPAN> regroupent des=20
+=E9l=E9ments.</P>
+<H3>=C9quivalences pour les expressions rationnelles simples</H3>
+<P class=3Doptions><SPAN class=3DlettreOption>\|</SPAN> correspond au =
+<SPAN=20
+class=3DlettreOption>|</SPAN> des expressions =E9tendues,</P>
+<P class=3Doptions><SPAN class=3DlettreOption>\+</SPAN> correspond au =
+<SPAN=20
+class=3DlettreOption>+</SPAN> des expressions =E9tendues,</P>
+<P class=3Doptions><SPAN class=3DlettreOption>\?</SPAN> correspond au =
+<SPAN=20
+class=3DlettreOption>?</SPAN> des expressions =E9tendues,</P>
+<P class=3Doptions><SPAN class=3DlettreOption>\{ \}</SPAN> correspondent =
+aux <SPAN=20
+class=3DlettreOption>{}</SPAN> des expressions =E9tendues,</P>
+<P class=3Doptions><SPAN class=3DlettreOption>\( \)</SPAN> correspondent =
+aux <SPAN=20
+class=3DlettreOption>()</SPAN> des expressions =E9tendues.</P>
+<P class=3Dauteur>=A9 2007 C.Blaess - <A class=3Dauteur=20
+href=3D"http://www.blaess.fr/christophe/">http://www.blaess.fr/christophe=
+/</A>=20
+<BR></P></BODY></HTML>

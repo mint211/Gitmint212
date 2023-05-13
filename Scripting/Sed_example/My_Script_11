@@ -1,0 +1,1 @@
+sed -i.bak 's/\(^line=eeeee aaaa cccc\)/#\1\nligne=-eeeee +aaaa cccc/' Input_file_a

@@ -1,0 +1,10 @@
+- name: Test version perl
+  gather_facts: False
+  hosts: all
+  become: yes
+  tasks:
+   - name: test shell version 
+     shell: python3 -V
+     register: __myshell_output
+   - local_action: lineinfile dest=/home/mint212/Gitmint212/myshelloutput.log line={{ inventory_hostname }};{{ __myshell_output.stdout}} create=yes insertafter=';'
+   - debug: msg="{{__myshell_output.stdout}}"
